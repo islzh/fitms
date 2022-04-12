@@ -8,12 +8,15 @@
 
 setlocal enableExtensions disableDelayedExpansion
 
+@REM Set below variable to the path to your FITm
+set "defaultFitmPath=P:\eaglestream\Intel\EagleStreamRpPkg\Tool\FTool\SPS\Tools\Flash_Image_Tool\FITm_GUI_and_CLI_Version\Fitm.exe"
+
 set "batchname=%~nx0"
 set "batchfolder=%~dp0"
 if "%batchfolder:~-1%" == "\" set "batchfolder=%batchfolder:~0,-1%"
 net session 1>nul 2>&1 || goto UacPrompt
 set "fitm=%*"
-if not defined fitm set "fitm=P:\eaglestream\Intel\EagleStreamRpPkg\Tool\FTool\SPS\Tools\Flash_Image_Tool\FITm_GUI_and_CLI_Version\Fitm.exe"
+if not defined fitm set "fitm=%defaultFitmPath%"
 netsh interface set interface Ethernet disabled
 explorer "%fitm%"
 ping localhost -n 5 >nul
