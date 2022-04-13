@@ -18,7 +18,11 @@ if "%batchfolder:~-1%" == "\" (
 )
 net session 1>nul 2>&1 || goto UacPrompt
 set "fitm=%*"
-if not defined fitm set "fitm=%defaultFitmPath%"
+if defined fitm (
+    set "fitm=%fitm:"=%"
+) else (
+    set "fitm=%defaultFitmPath%"
+)
 netsh interface set interface Ethernet disabled
 explorer "%fitm%"
 ping localhost -n 5 >nul
