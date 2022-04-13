@@ -13,7 +13,9 @@ set "defaultFitmPath=P:\eaglestream\Intel\EagleStreamRpPkg\Tool\FTool\SPS\Tools\
 
 set "batchname=%~nx0"
 set "batchfolder=%~dp0"
-if "%batchfolder:~-1%" == "\" set "batchfolder=%batchfolder:~0,-1%"
+if "%batchfolder:~-1%" == "\" (
+    set "batchfolder=%batchfolder:~0,-1%"
+)
 net session 1>nul 2>&1 || goto UacPrompt
 set "fitm=%*"
 if not defined fitm set "fitm=%defaultFitmPath%"
