@@ -16,13 +16,18 @@ set "batchfolder=%~dp0"
 if "%batchfolder:~-1%" == "\" (
     set "batchfolder=%batchfolder:~0,-1%"
 )
-net session 1>nul 2>&1 || goto UacPrompt
 set "fitm=%*"
 if defined fitm (
     set "fitm=%fitm:"=%"
 ) else (
     set "fitm=%defaultFitmPath%"
 )
+if not exist "%fitm%" (
+    >&2 echo error: could not find "%fitm%"
+    pause
+    exit /b
+)
+net session 1>nul 2>&1 || goto UacPrompt
 netsh interface set interface Ethernet disabled
 explorer "%fitm%"
 ping localhost -n 5 >nul
