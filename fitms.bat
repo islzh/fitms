@@ -1,8 +1,8 @@
 @echo off
 
 @REM FITm Starter
-@REM version:   0.0.1
-@REM date:      2022-04-07
+@REM version:   0.0.2
+@REM date:      2022-04-13
 @REM author:    johnny-appleseed
 @REM email:     liuzhaohui@inspur.com
 
