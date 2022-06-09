@@ -9,7 +9,7 @@
 setlocal enableExtensions disableDelayedExpansion
 
 @REM Set below variable to the path to your FITm
-set "defaultFitmPath=P:\eaglestream\Intel\EagleStreamRpPkg\Tool\FTool\SPS\Tools\Flash_Image_Tool\FITm_GUI_and_CLI_Version\Fitm.exe"
+if not defined defaultFitmPath set "defaultFitmPath=P:\eaglestream\Intel\EagleStreamRpPkg\Tool\FTool\SPS\Tools\Flash_Image_Tool\FITm_GUI_and_CLI_Version\Fitm.exe"
 
 set "batchname=%~nx0"
 set "batchfolder=%~dp0"
